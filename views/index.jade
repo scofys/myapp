@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+    -var name = 'huihui';
+    p Hello #{ name }
+    h2 From example
+    form(method='post', action='/')
+        fieldset
+            legend Add a user
+            p
+                label First name
+                input(name='user[first_name]')
+            p
+                label Last name
+                input(name='user[last_name]')
+            p
+                input(type='submit', value='Save')
+    h1 Accessing data
+
+    h3 First Name
+    p= user.first_name
+
+    h3 Surname
+    p= user.surname
+
+    h3 QQ
+    p= user.QQ
+        
