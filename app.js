@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var mysql = require('mysql');
 
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -67,46 +66,6 @@ var server = app.listen(3000, function () {
   console.log('Example app listening at http://%s:%s', host, port);
 });
 
-var data = 'Some data I want to write to a file';
-fs.writeFile('public/file.txt', data, function(err) {
-    if(!err) {
-        console.log('Wrote data to file.txt');
-    }else {
-        throw err;
-    }
-});
-fs.readFile('file.txt', 'utf8', function(err, data) {
-    if(!err) {
-        console.log(data);
-    }else {
-        throw err;
-    }
-});
-
-var connection = mysql.createConnection({
-  host     : '192.168.11.88',
-  user     : 'root',
-  password : '123456',
-  database : 'shijiahui'
-});
-
-connection.connect();
-
-connection.query('SELECT * from GRADE', function(err, rows, fields) {
-    if(!err) {
-        console.log('The solution is: ', rows);
-        console.log('The solution is: ', rows[0]);
-        console.log('The solution is: ', rows[0].LOW);
-    }else {
-        console.log('Error while performing Query');
-    }
-});
-
-connection.end();
-
-//export SECRET_KEY='51saf8aw7fa51asd2a3w5';
-
-console.log(process.env.SECRET_KEY);
 
 
 module.exports = app;

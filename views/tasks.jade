@@ -1,9 +1,27 @@
-extends layout
+extends 
 
 block content
     h1 my tasks
+    br
+    form(method='post', action="/tasks/new")
+        fiedset
+            lengend Add a task
+        .clearfix    
+            label Task
+            input(type="text", name="task")
+        .actions
+            input.btn.btn-success(type="submit")
+            button.btn(type="reset") Cancel
+    br
+    br
     table.table
         tr
             th 我的任务
-            th 时间
+            th 操作
+        each task in mytask
+            tr
+                td #{ task.mytask }
+                td
+                    button.btn.btn-default(type="button") 删除
+
             
